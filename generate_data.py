@@ -1,14 +1,15 @@
 # generate_data.py
-import pandas as pd
-from faker import Faker
+import os
 import random
 from datetime import date
-import os
-# --- CHANGE #1: Import our centralized config variable ---
+
+import pandas as pd
+from faker import Faker
+
 from config import DATA_DIR
 
-# Initialize the Faker library
 fake = Faker()
+
 
 def create_fake_sales_data(num_records):
     """Generates a DataFrame with fake sales records."""
@@ -24,17 +25,14 @@ def create_fake_sales_data(num_records):
         })
     return pd.DataFrame(data)
 
+
 if __name__ == "__main__":
     num_records = 100
     daily_data = create_fake_sales_data(num_records)
-    
-    # --- CHANGE #2: Create a full file path using the DATA_DIR from config ---
+
     filename = f"sales_data_{date.today().strftime('%Y_%m_%d')}.csv"
-    # os.path.join correctly combines the directory and filename (works on Windows/Mac/Linux)
     filepath = os.path.join(DATA_DIR, filename)
-    
-    # Save the DataFrame to the new, correct location
+
     daily_data.to_csv(filepath, index=False)
-    
-    # --- CHANGE #3: Update the print message to show the correct path ---
+
     print(f"Successfully generated {num_records} records in '{filepath}'")
