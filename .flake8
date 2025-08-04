@@ -1,0 +1,18 @@
+[flake8]
+# 1. Ignore specific folders
+# We never want to lint our virtual environment or other common folders.
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv
+
+# 2. Set a longer max line length
+# The default of 79 is often too short. 88 is the standard for the 'black' code formatter.
+max-line-length = 88
+
+# 3. Ignore specific error codes (optional, but common)
+# E501: line too long (we handle this with max-line-length)
+# W503: line break before binary operator
+# You can add more error codes here as you see fit.
+ignore = E501, W503

@@ -2,4 +2,5 @@ pandas
 psycopg2-binary
 SQLAlchemy
 python-dotenv
-fake
+faker
+flake8
