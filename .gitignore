@@ -1,0 +1,16 @@
+# .gitignore
+
+# Virtual Environment
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated data/reports
+*.csv
+*.html
